@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<dubbo:application name="yestae-open-api"></dubbo:application>
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}"></dubbo:registry>
+	<!-- 要引用的服务 -->
+	<!-- 用户服务 -->
+	<dubbo:reference interface="com.yestae.user.center.dubbo.service.IUserCenterService" id="userCenterService" check="false" version="1.0"></dubbo:reference>
+	<dubbo:reference interface="com.yestae.user.center.dubbo.service.IUserCenterPointsService" id="userCenterPointsService" check="false" version="1.0"></dubbo:reference>
+	<dubbo:reference interface="com.yestae.user.center.dubbo.service.IUserCenterTransactionFlowService" id="userCenterTransactionFlowService" check="false" version="1.0"></dubbo:reference>
+	<!-- 实名相关 -->
+	<dubbo:reference interface="com.yestae.user.center.dubbo.service.IUserCenterRealNameAuthenticationService" id="userCenterRealNameAuthenticationService" check="false" version="1.0"/>
+	
+	<!--增值服务-->
+	<dubbo:reference interface="com.yestae.user.vas.dubbo.service.IVasDubboService" id="vasDubboService" check="false" version="1.0"></dubbo:reference>
+	<dubbo:reference interface="com.yestae.user.center.dubbo.service.IUserCenterAddedService" id="userCenterAddedService" check="false" version="1.0"></dubbo:reference>
+
+	<!-- 短信服务-->
+	<dubbo:reference interface="com.yestae.sms.api.dubbo.ISmsDubboService" id="smsDubboService" check="false" version="1.0"/>
+	
+	<!-- 订单服务-->
+	<dubbo:reference interface="com.yestae.order.api.IOrderDubboService" id="orderDubboService" check="false" version="1.0"></dubbo:reference>
+
+	<dubbo:reference interface="com.yestae.third.certification.api.IThirdCertificationDubboService" id="thirdCertificationDubboService" check="false" version="1.0"></dubbo:reference>
+	<dubbo:reference interface="com.yestae.coupon.api.ITeaCouponDubboService" id="teaCouponDubboService" check="false" version="2.0"></dubbo:reference>
+
+	<!-- 创蓝实名-->
+	<!-- 实名认证接口-->
+	<dubbo:reference interface="com.yestae.realname.authentication.api.ICarriersAuthDubboService" id="carriersAuthDubboService" check="false" version="1.0"></dubbo:reference>
+	<!-- 银行卡认证-->
+	<dubbo:reference interface="com.yestae.realname.authentication.api.ICardAuthDubboService" id="cardAuthDubboService" check="false" version="1.0"></dubbo:reference>
+	<!-- 受益劵-->
+	<!--<dubbo:reference interface="com.yestae.coin.api.ICoinDubboService" id="coinDubboService" check="false" version="1.0" retries="-1" timeout="10000"></dubbo:reference>-->
+	<!-- 宝盒-->
+	<dubbo:reference interface="com.yestae.box.api.IBoxDubboService" id="boxDubboService" check="false" version="1.0"></dubbo:reference>
+
+</beans>

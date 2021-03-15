@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 商户应用开通接口信息  -->
+<mapper namespace="com.yestae.modules.sys.dao.OpenapiMchAppInterfaceDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yestae.modules.sys.entity.OpenapiMchAppInterfaceEntity" id="openapiMchAppInterfaceMap">
+        <result property="id" column="id"/>
+        <result property="appCode" column="app_code"/>
+        <result property="permCode" column="perm_code"/>
+        <result property="mchCode" column="mch_code"/>
+        <result property="isAuth" column="is_auth"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedBy" column="updated_by"/>
+        <result property="updatedTime" column="updated_time"/>
+    </resultMap>
+
+
+</mapper>

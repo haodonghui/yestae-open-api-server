@@ -1,0 +1,1369 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "openapi",
+		"version": "3.0.0",
+		"title": "益友会",
+		"termsOfService": "https://www.yestae.com/home"
+	},
+	"host": "openapi-test.yestae.com",
+	"basePath": "/api",
+	"tags": [{
+		"name": "sms-api-controller",
+		"description": "Sms Api Controller"
+	}, {
+		"name": "user-api-query-controller",
+		"description": "User Api Query Controller"
+	}, {
+		"name": "user-oauth-controller",
+		"description": "User Oauth Controller"
+	}, {
+		"name": "auth-controller",
+		"description": "Auth Controller"
+	}, {
+		"name": "coupon-controller",
+		"description": "Coupon Controller"
+	}, {
+		"name": "user-api-modify-controller",
+		"description": "User Api Modify Controller"
+	}],
+	"paths": {
+		"/auth/bankCardVerify": {
+			"post": {
+				"tags": ["auth-controller"],
+				"summary": "银行卡3要素校验",
+				"description": "银行卡3要素校验",
+				"operationId": "bankCardVerifyUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1025275500607488002\",\"realName\":\"张三丰\",\"idCard\":\"110000201904251111\",\"bankNo\":\"622611111111111111111\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/auth/idCardVerify": {
+			"post": {
+				"tags": ["auth-controller"],
+				"summary": "实名认证",
+				"description": "实名认证",
+				"operationId": "idCardVerifyUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1025275500607488002\",\"realName\":\"张三丰\",\"idCard\":\"110000201904251111\",\"mobile\":\"18311111111\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/coupon/getActivityCouponList": {
+			"post": {
+				"tags": ["coupon-controller"],
+				"summary": "获取当前可用的茶票活动",
+				"description": "获取当前可用的茶票活动",
+				"operationId": "getActivityCouponListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"obtainPlatform\":\"1\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/coupon/getCouponList": {
+			"post": {
+				"tags": ["coupon-controller"],
+				"summary": "分页获取茶票列表",
+				"description": "分页获取茶票列表",
+				"operationId": "getCouponListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1025275500607488002\",\"couponStatusList\":[1,2],\"curPage\":1,\"pageSize\":20,\"obtainPlatform\":4}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/oauth2/authorize": {
+			"post": {
+				"tags": ["user-oauth-controller"],
+				"summary": "会员认证",
+				"description": "会员认证",
+				"operationId": "authorizeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"password\":\"*****\",\"type\":1,\"mobile\":\"18311112223\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/oauth2/refreshToken": {
+			"post": {
+				"tags": ["user-oauth-controller"],
+				"summary": "刷新accessToken",
+				"description": "刷新accessToken",
+				"operationId": "refreshTokenUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"refreshToken\":\"2484cd8f2b541383ecd735cd577a3c9e\",\"uid\":\"22234\",\"accessToken\":\"e9954270086ac0736e642d0d0c6f948d\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/sms/generateCode": {
+			"post": {
+				"tags": ["sms-api-controller"],
+				"summary": "生成微信登录验证码",
+				"description": "生成微信登录验证码",
+				"operationId": "generateCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"mobile\":\"18311112223\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/sms/sendAuthCode": {
+			"post": {
+				"tags": ["sms-api-controller"],
+				"summary": "发送登录验证码",
+				"description": "发送登录验证码",
+				"operationId": "sendLoginCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"mobile\":\"18311112223\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/sms/sendForgetPwdCode": {
+			"post": {
+				"tags": ["sms-api-controller"],
+				"summary": "发送忘记密码短信验证码",
+				"description": "发送忘记密码短信验证码",
+				"operationId": "sendUpdatePasswordCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"mobile\":\"18311112223\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/sms/sendUpdateMobileCode": {
+			"post": {
+				"tags": ["sms-api-controller"],
+				"summary": "发送修改手机号验证码",
+				"description": "发送修改手机号验证码",
+				"operationId": "sendUpdateMobileCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"mobile\":\"18311112223\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/sms/validatorSmsCode": {
+			"post": {
+				"tags": ["sms-api-controller"],
+				"summary": "校验短信验证码",
+				"description": "校验短信验证码",
+				"operationId": "validatorSmsCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"mobile\":\"18311112223\",\"smsCode\":\"1234\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/add": {
+			"post": {
+				"tags": ["user-api-modify-controller"],
+				"summary": "新增用户",
+				"description": "新增用户",
+				"operationId": "addUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"name\":\"BeJson2\",\"mobile\":\"18311112223\",\"gender\":1,\"birthday\":\"2019-01-01\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/getAuthInfo": {
+			"post": {
+				"tags": ["user-api-query-controller"],
+				"summary": "查询实名信息",
+				"description": "查询实名信息",
+				"operationId": "getAuthInfoUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1128947923510472705\",\"accessToken\":\"123\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/getInfo": {
+			"post": {
+				"tags": ["user-api-query-controller"],
+				"summary": "查询会员信息",
+				"description": "查询会员信息",
+				"operationId": "getInfoUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1128947923510472705\",\"mobile\":\"18311112226\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/getInfoBatch": {
+			"post": {
+				"tags": ["user-api-query-controller"],
+				"summary": "批量查询会员信息",
+				"description": "批量查询会员信息",
+				"operationId": "getInfoBatchUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uids\":[951375525788782800,951375525788782800]}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/orderList": {
+			"post": {
+				"tags": ["user-api-query-controller"],
+				"summary": "查询会员历史订单",
+				"description": "查询会员历史订单",
+				"operationId": "orderListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1128947923510472705\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/serviceList": {
+			"post": {
+				"tags": ["user-api-query-controller"],
+				"summary": "查询会员尊享服务",
+				"description": "查询会员尊享服务",
+				"operationId": "serviceListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1128947923510472705\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/updateMobile": {
+			"post": {
+				"tags": ["user-api-modify-controller"],
+				"summary": "修改会员手机号",
+				"description": "修改会员手机号",
+				"operationId": "updateMobileUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1128947923510472705\",\"mobile\":\"18311112226\",\"accessToken\":\"123\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/updatePassword": {
+			"post": {
+				"tags": ["user-api-modify-controller"],
+				"summary": "修改会员登录密码",
+				"description": "修改会员登录密码",
+				"operationId": "updatePasswordUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["application/json", "*/*"],
+				"parameters": [{
+					"name": "appid",
+					"in": "formData",
+					"description": "应用编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "mchid",
+					"in": "formData",
+					"description": "商户编号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "timestamp",
+					"in": "formData",
+					"description": "请求时间戳",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "version",
+					"in": "formData",
+					"description": "版本号",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "sign",
+					"in": "formData",
+					"description": "签名",
+					"required": true,
+					"type": "string"
+				}, {
+					"name": "bizcontent",
+					"in": "formData",
+					"description": "{\"uid\":\"1128947923510472705\",\"newPassword\":\"qaz123\",\"accessToken\":\"2484cd8f2b541383ecd735cd577a3c9e\"}",
+					"required": true,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "object",
+							"additionalProperties": {
+								"type": "object"
+							}
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"securityDefinitions": {
+		"token": {
+			"type": "apiKey",
+			"name": "token",
+			"in": "header"
+		}
+	}
+}

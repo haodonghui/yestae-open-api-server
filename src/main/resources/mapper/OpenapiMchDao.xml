@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 商户信息  -->
+<mapper namespace="com.yestae.modules.sys.dao.OpenapiMchDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yestae.modules.sys.entity.OpenapiMchEntity" id="openapiMchMap">
+        <result property="id" column="id"/>
+        <result property="mchName" column="mch_name"/>
+        <result property="mchCode" column="mch_code"/>
+        <result property="mchAddress" column="mch_address"/>
+        <result property="linkMan" column="link_man"/>
+        <result property="linkPhone" column="link_phone"/>
+        <result property="linkEmail" column="link_email"/>
+        <result property="mchState" column="mch_state"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedBy" column="updated_by"/>
+        <result property="updatedTime" column="updated_time"/>
+    </resultMap>
+
+
+</mapper>

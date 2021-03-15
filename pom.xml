@@ -1,0 +1,320 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.yestae</groupId>
+  <artifactId>yestae-open-api-server</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.3.RELEASE</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<mybatisplus.version>3.0.7.1</mybatisplus.version>
+		<mysql.version>5.1.38</mysql.version>
+		<druid.version>1.1.13</druid.version>
+		<quartz.version>2.3.0</quartz.version>
+		<commons.lang.version>2.6</commons.lang.version>
+		<commons.fileupload.version>1.2.2</commons.fileupload.version>
+		<commons.io.version>2.5</commons.io.version>
+		<commons.codec.version>1.10</commons.codec.version>
+		<commons.configuration.version>1.10</commons.configuration.version>
+		<shiro.version>1.4.0</shiro.version>
+		<jwt.version>0.7.0</jwt.version>
+		<swagger.version>2.7.0</swagger.version>
+		<joda.time.version>2.9.9</joda.time.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<hutool.version>4.1.1</hutool.version>
+		<lombok.version>1.18.4</lombok.version>
+		<dubbo-spring-boot>1.0.0</dubbo-spring-boot>
+
+	</properties>
+
+	<dependencies>
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+		        <exclusion>
+		            <groupId>org.apache.logging.log4j</groupId>
+		            <artifactId>log4j-to-slf4j</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>org.springframework.boot</groupId>
+		            <artifactId>spring-boot-starter-tomcat</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+            <groupId>io.dubbo.springboot</groupId>
+            <artifactId>spring-boot-starter-dubbo</artifactId>
+            <version>${dubbo-spring-boot}</version>
+        </dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatisplus.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.baomidou</groupId>
+					<artifactId>mybatis-plus-generator</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>${mybatisplus.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>${commons.lang.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons.codec.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>${commons.configuration.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>${joda.time.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>${hutool.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
+ 		<dependency>
+            <groupId>yestae-mall</groupId>
+            <artifactId>yestae-user-service-sdk</artifactId>
+            <version>v2.0.0</version>
+        </dependency>
+        <dependency>
+			<groupId>yestae-mall-manager</groupId>
+			<artifactId>yestae-uc-sdk</artifactId>
+			<version>v2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>yestae-sms</groupId>
+			<artifactId>yestae-sms-sdk</artifactId>
+			<version>v2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>yestae-mall</groupId>
+			<artifactId>yestae-order-sdk</artifactId>
+			<version>v2.0.0</version>
+		</dependency>
+
+<!-- oauth2_s -->
+		<dependency>
+			<groupId>org.apache.oltu.oauth2</groupId>
+			<artifactId>org.apache.oltu.oauth2.client</artifactId>
+			<version>0.31</version>
+		</dependency>
+		 <dependency>  
+		      <groupId>org.apache.oltu.oauth2</groupId>  
+		      <artifactId>org.apache.oltu.oauth2.authzserver</artifactId>  
+		      <version>0.31</version>  
+		  </dependency>  
+		  <dependency>  
+		      <groupId>org.apache.oltu.oauth2</groupId>  
+		      <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>  
+		      <version>0.31</version>  
+		 </dependency> 
+<!-- oauth2_e -->
+		<dependency>
+             <groupId>org.slf4j</groupId>
+             <artifactId>slf4j-api</artifactId>
+         </dependency>
+         <dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>log4j-over-slf4j</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+
+		<!-- 第三方实名认证-->
+		<dependency>
+			<groupId>com.yestae.certification</groupId>
+			<artifactId>yestae-third-certification-sdk</artifactId>
+			<version>v2.0.0</version>
+		</dependency>
+
+        <dependency>
+            <groupId>yestae-mall</groupId>
+            <artifactId>yestae-coupon-sdk</artifactId>
+            <version>v3.0.0</version>
+        </dependency>
+
+		<!-- 创蓝实名认证-->
+		<dependency>
+			<groupId>com.yestae.realname.authentication</groupId>
+			<artifactId>realname-authentication-sdk</artifactId>
+			<version>v1.0</version>
+		</dependency>
+
+		<!-- 新版短信-->
+		<dependency>
+			<groupId>com.yestae.sms.sdk</groupId>
+			<artifactId>yestae-sms-sdk</artifactId>
+			<version>v1.0.0</version>
+		</dependency>
+
+		<!--受益劵-->
+		<!--<dependency>
+			<groupId>com.yestae.coin</groupId>
+			<artifactId>yestae-coin-sdk</artifactId>
+			<version>v1.0</version>
+		</dependency>-->
+
+		<!-- 宝盒兑换-->
+		<dependency>
+			<groupId>yestae-mall</groupId>
+			<artifactId>yestae-box-sdk</artifactId>
+			<version>v2.0.0</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+			<!-- 跳过单元测试 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+	<profiles>
+    <profile>
+        <id>dev</id>
+        <properties>
+            <package.environment>dev</package.environment>
+        </properties>
+        <!-- 是否默认 true表示默认-->
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+    </profile>
+    <profile>
+        <id>test</id>
+        <properties>
+            <package.environment>test</package.environment>
+        </properties>
+    </profile>
+    <profile>
+        <!-- 生产环境 -->
+        <id>prod</id>
+        <properties>
+            <package.environment>prod</package.environment>
+        </properties>
+    </profile>
+</profiles>
+
+</project>

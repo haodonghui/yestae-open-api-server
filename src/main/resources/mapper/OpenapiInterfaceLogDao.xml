@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 接口日志  -->
+<mapper namespace="com.yestae.modules.sys.dao.OpenapiInterfaceLogDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.yestae.modules.sys.entity.OpenapiInterfaceLogEntity" id="openapiInterfaceLogMap">
+        <result property="id" column="id"/>
+        <result property="interfaceName" column="interface_name"/>
+        <result property="interfaceUrl" column="interface_url"/>
+        <result property="appCode" column="app_code"/>
+        <result property="appName" column="app_name"/>
+        <result property="reqTime" column="req_time"/>
+        <result property="params" column="params"/>
+        <result property="result" column="result"/>
+        <result property="ip" column="ip"/>
+        <result property="createdBy" column="created_by"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedBy" column="updated_by"/>
+        <result property="updatedTime" column="updated_time"/>
+    </resultMap>
+
+
+</mapper>
